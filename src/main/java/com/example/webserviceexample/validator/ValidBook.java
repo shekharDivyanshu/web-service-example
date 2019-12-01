@@ -12,7 +12,7 @@ import java.lang.annotation.Target;
 @Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface ValidBook {
-    String message() default "";
+    String message() default "Invalid Book!!!";
     Class<?>[] groups() default {};
     Class<? extends Payload>[] payload() default {};
 }

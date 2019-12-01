@@ -5,7 +5,7 @@ import com.example.webserviceexample.validator.ValidBook;
 import javax.validation.constraints.NotEmpty;
 import java.util.Objects;
 
-@ValidBook(message = "Invalid Book")
+@ValidBook
 public class Book {
 
     @NotEmpty(message = "Book name can not be empty!")

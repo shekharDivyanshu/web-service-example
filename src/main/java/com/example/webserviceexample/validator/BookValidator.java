@@ -15,10 +15,18 @@ public class BookValidator implements ConstraintValidator<ValidBook, Book>{
     @Override
     public boolean isValid(Book book, ConstraintValidatorContext constraintValidatorContext) {
 
+        boolean isValid = true;
         if(book.getName().startsWith("comp")){
 
-            return false;
+            isValid = false;
         }
-        return true;
+
+        if(!isValid) {
+            constraintValidatorContext.disableDefaultConstraintViolation();
+            constraintValidatorContext
+                    .buildConstraintViolationWithTemplate( "Book Name can not start with comp" )
+                    .addConstraintViolation();
+        }
+        return isValid;
     }
 }
